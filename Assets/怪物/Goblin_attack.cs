@@ -17,13 +17,7 @@ public class Goblin_attack : MonoBehaviour
     public float hit_back = 20;
     public float hit_range = 0.75F;
     public LayerMask playerLayer;
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.gameObject.GetComponent<Player_health>().Change_health(-damage);
-        }
-    }
+
     public void attack(attacking_mode attack_pattern)
     {
         Collider2D[] hits;

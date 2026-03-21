@@ -20,7 +20,7 @@ public class Goblin_move : MonoBehaviour
     public Animator animator;
     public Enemy_state enemy_State;
     bool is_attacking;
-
+    bool is_knocked;
     //对象固有属性
     public Transform player;
     public Transform detect_point;
@@ -42,6 +42,8 @@ public class Goblin_move : MonoBehaviour
         change_status(Enemy_state.IDLE);
         attack_cool_down = 2;
         Detect_range = 5F;
+        is_knocked = false;
+
     }
 
     // Update is called once per frame
@@ -89,7 +91,7 @@ public class Goblin_move : MonoBehaviour
     }
     private void Check_player()
     {
-        if (is_attacking) return;
+        if (is_attacking || is_knocked) return;
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(detect_point.position,Detect_range,player_layer);
         if (hits.Length <= 0)
@@ -124,6 +126,19 @@ public class Goblin_move : MonoBehaviour
         attack_timer = attack_cool_down;
         change_status(Enemy_state.IDLE);
         animator.SetInteger("Attacking_mode", 0);
+    }
+    public void knock_back(Transform enemy, float hit_back, float hit_time)
+    {
+        is_knocked = true;
+        Vector2 direction = (rb.transform.position - enemy.position).normalized;
+        rb.velocity = direction * hit_back;
+        StartCoroutine(KnockbackCounter(hit_time));
+    }
+    IEnumerator KnockbackCounter(float time)
+    {
+        yield return new WaitForSeconds(time);
+        rb.velocity = Vector2.zero;
+        is_knocked = false;
     }
     public void change_status(Enemy_state status)
     {

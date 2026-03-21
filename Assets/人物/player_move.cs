@@ -10,13 +10,20 @@ public class player_move : MonoBehaviour
     public Animator animator;
     public int faceing;
     public bool is_knocked;
+    public Player_combat combat;
     // Start is called before the first frame update
     void Start()
     {
         speed = 5;
         faceing = 1;
     }
-
+    private void Update()
+    {
+        if(Input.GetButtonDown("Slash"))
+        {
+            combat.attack();
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -31,7 +38,7 @@ public class player_move : MonoBehaviour
         //获取输入情况
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
+ 
         //传参给动画器
         animator.SetFloat("horizontal",Math.Abs(horizontal));
         animator.SetFloat("vertical", Math.Abs(vertical));
@@ -45,6 +52,7 @@ public class player_move : MonoBehaviour
     }
     void fliping()
     {
+        if (combat.is_attacking) return;
         faceing *= -1;
         transform.localScale = new Vector3(transform.localScale.x * -1,transform.localScale.y,transform.localScale.z);
     }
@@ -61,4 +69,5 @@ public class player_move : MonoBehaviour
         physics.velocity = Vector2.zero;
         is_knocked = false;
     }
+
 }
