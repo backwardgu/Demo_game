@@ -63,6 +63,7 @@ public class Goblin_move : MonoBehaviour
     }
     void chase()
     {
+        if (is_knocked) return;
         Vector2 direction = (player.position - transform.position).normalized;
         rb.velocity = direction * speed;
         if (rb.velocity.x < 0 && facing_direction > 0 ||

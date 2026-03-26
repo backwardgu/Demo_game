@@ -14,7 +14,7 @@ public class player_move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 5;
+        speed = StatusManager.Instance.speed;
         faceing = 1;
     }
     private void Update()
@@ -71,3 +71,4 @@ public class player_move : MonoBehaviour
     }
 
 }
+//What the fuck?

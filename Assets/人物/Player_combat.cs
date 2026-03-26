@@ -13,12 +13,12 @@ public enum Attacking_mode
 }
 public class Player_combat : MonoBehaviour
 {
-    public int damage;
+    private int damage;
     public float hit_range;
-    public int hit_back;
+    private float hit_back;
 
     public float attack_timer;
-    public float attck_cool;
+    private float attck_cool;
     public bool is_attacking;
     public Animator animator;
     public Attacking_mode cur_attack;
@@ -29,11 +29,11 @@ public class Player_combat : MonoBehaviour
     public Transform attack_point_front2;
     public void Start()
     {
-        attck_cool = 0.2F;
+        attck_cool = StatusManager.Instance.attack_cool;
         is_attacking = false;
-        hit_range = 0.45F;
-        damage = 1;
-        hit_back = 20;
+        hit_range = StatusManager.Instance.weaponRange;
+        damage = StatusManager.Instance.damage;
+        hit_back = StatusManager.Instance.knock_back_force;
     }
     public void Update()
     {
@@ -71,9 +71,9 @@ public class Player_combat : MonoBehaviour
         switch (attack_pattern)
         {
             case Attacking_mode.Front1:
-
                 Debug.Log("第一段攻击");
                 break;
+
             case Attacking_mode.Front2:
                 Debug.Log("第二段攻击");
                 attack_point = attack_point_front2;
@@ -87,4 +87,20 @@ public class Player_combat : MonoBehaviour
             hits[0].GetComponent<Goblin_move>().knock_back(attack_point, hit_back, 0.25F);
         }
     }
+    void OnDrawGizmosSelected()
+    {
+        if (attack_point_front1 == null) return;
+
+        // 绘制第一段攻击的实际范围
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attack_point_front1.position, hit_range);
+
+        // 绘制第二段攻击的范围
+        if (attack_point_front2 != null)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(attack_point_front2.position, hit_range);
+        }
+    }
 }
+

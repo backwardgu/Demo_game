@@ -10,8 +10,8 @@ public class Enemy_health : MonoBehaviour
 
     void Start()
     {
-        max_health = 5;
-        cur_health = 5;
+        max_health = StatusManager.Instance.max_health;
+        cur_health = StatusManager.Instance.cur_health;
     }
 
     public void Change_health(int amount)
