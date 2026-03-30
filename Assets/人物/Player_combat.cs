@@ -13,12 +13,7 @@ public enum Attacking_mode
 }
 public class Player_combat : MonoBehaviour
 {
-    private int damage;
-    public float hit_range;
-    private float hit_back;
-
     public float attack_timer;
-    private float attck_cool;
     public bool is_attacking;
     public Animator animator;
     public Attacking_mode cur_attack;
@@ -29,11 +24,7 @@ public class Player_combat : MonoBehaviour
     public Transform attack_point_front2;
     public void Start()
     {
-        attck_cool = StatusManager.Instance.attack_cool;
         is_attacking = false;
-        hit_range = StatusManager.Instance.weaponRange;
-        damage = StatusManager.Instance.damage;
-        hit_back = StatusManager.Instance.knock_back_force;
     }
     public void Update()
     {
@@ -60,7 +51,7 @@ public class Player_combat : MonoBehaviour
     }
     public void FinishAttack()
     {
-        attack_timer = attck_cool;
+        attack_timer = StatusManager.Instance.attackCool;
         is_attacking = false;
         animator.SetInteger("attacking_mode", 0);
     }
@@ -79,12 +70,12 @@ public class Player_combat : MonoBehaviour
                 attack_point = attack_point_front2;
                 break;
         }
-        hits = Physics2D.OverlapCircleAll(attack_point.position, hit_range, enemy_layer);
+        hits = Physics2D.OverlapCircleAll(attack_point.position, StatusManager.Instance.weaponRange, enemy_layer);
         if (hits.Length > 0)
         {
             Debug.Log("命中怪物！");
-            hits[0].GetComponent<Enemy_health>().Change_health(-damage);
-            hits[0].GetComponent<Goblin_move>().knock_back(attack_point, hit_back, 0.25F);
+            hits[0].GetComponent<Enemy_health>().Change_health(-StatusManager.Instance.damage);
+            hits[0].GetComponent<Goblin_move>().knock_back(attack_point, StatusManager.Instance.hitback, 0.25F);
         }
     }
     void OnDrawGizmosSelected()
@@ -93,13 +84,13 @@ public class Player_combat : MonoBehaviour
 
         // 绘制第一段攻击的实际范围
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attack_point_front1.position, hit_range);
+        Gizmos.DrawWireSphere(attack_point_front1.position, StatusManager.Instance.weaponRange);
 
         // 绘制第二段攻击的范围
         if (attack_point_front2 != null)
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(attack_point_front2.position, hit_range);
+            Gizmos.DrawWireSphere(attack_point_front2.position, StatusManager.Instance.weaponRange);
         }
     }
 }

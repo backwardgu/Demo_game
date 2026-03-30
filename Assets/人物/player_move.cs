@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class player_move : MonoBehaviour
 {
-    public float speed = 5;
     public Rigidbody2D physics;
     public Animator animator;
     public int faceing;
@@ -14,7 +13,6 @@ public class player_move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = StatusManager.Instance.speed;
         faceing = 1;
     }
     private void Update()
@@ -44,7 +42,7 @@ public class player_move : MonoBehaviour
         animator.SetFloat("vertical", Math.Abs(vertical));
 
         //传参给刚体
-        physics.velocity = new Vector2(horizontal,vertical) * speed;
+        physics.velocity = new Vector2(horizontal,vertical) * StatusManager.Instance.speed;
 
         //传参给精灵
         if (horizontal > 0 && transform.localScale.x < 0 ||
