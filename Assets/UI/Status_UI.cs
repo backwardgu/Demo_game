@@ -53,7 +53,7 @@ public class Status_UI : MonoBehaviour
             case "speed":
                 statslots[3].GetComponentInChildren<TMP_Text>().text = "speed:" + value;
                 break;
-            case "maxHealth":
+            case "max_health":
                 statslots[4].GetComponentInChildren<TMP_Text>().text = "Max HP:" + value;
                 break;
             case "cur_health":

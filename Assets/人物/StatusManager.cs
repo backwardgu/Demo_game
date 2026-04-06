@@ -100,7 +100,7 @@ public class StatusManager : MonoBehaviour
             OnStatChanged?.Invoke("max_health", value);
 
             // 如果当前血量超过新上限，同步调整
-            if (_currentHealth > value)
+            if (currentHealth > value)
             {
                 currentHealth = value;
             }

@@ -75,7 +75,11 @@ public class Goblin_move : MonoBehaviour
     void attacking()
     {
         is_attacking = true;
-        rb.velocity = Vector2.zero; 
+
+        if (!is_knocked)
+        {
+            rb.velocity = Vector2.zero;
+        }
         Vector2 direction = (player.position - transform.position).normalized;
         if (direction.y > 0 && direction.x < 0.7 && direction.x > -0.7)
         {

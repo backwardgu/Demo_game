@@ -18,15 +18,25 @@ public class Player_health : MonoBehaviour
     public void Change_health(int amount)
     {
         Debug.Log($"生命值变动，变动为{amount}");
+
         StatusManager.Instance.currentHealth += amount;
-        animator.Play("HP_UI");
-        health_text.text = "HP:" + StatusManager.Instance.currentHealth + "/" + StatusManager.Instance.maxHealth;
+
         if (StatusManager.Instance.currentHealth > StatusManager.Instance.maxHealth)
         {
             StatusManager.Instance.currentHealth = StatusManager.Instance.maxHealth;
         }
-    }
 
+        animator.Play("HP_UI");
+        health_text.text = "HP:" + StatusManager.Instance.currentHealth + "/" + StatusManager.Instance.maxHealth;
+
+    }
+    public void Change_Max_Health(int amount)
+    {
+        StatusManager.Instance.maxHealth += amount;
+        animator.Play("HP_UI");
+        health_text.text = "HP:" + StatusManager.Instance.currentHealth + "/" + StatusManager.Instance.maxHealth;
+        Change_health(amount);
+    }
     //虽然没有必要，但是我想测试一下事件系统
     public void die(string name,object value)
     {

@@ -51,6 +51,7 @@ public class Player_combat : MonoBehaviour
     }
     public void FinishAttack()
     {
+        Debug.Log(attack_timer);
         attack_timer = StatusManager.Instance.attackCool;
         is_attacking = false;
         animator.SetInteger("attacking_mode", 0);
