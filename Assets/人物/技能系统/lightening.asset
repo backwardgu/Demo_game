@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bcd2ed9436df543a9165e666382e36, type: 3}
   m_Name: lightening
   m_EditorClassIdentifier: 
-  skillname: 
-  max_level: 0
-  skill_icon: {fileID: 0}
+  skillname: "\u96F7\u9706\u6253\u51FB"
+  max_level: 1
+  skill_icon: {fileID: 21300000, guid: 6bb05cc235cff834d917e84a7c256616, type: 3}

@@ -41,7 +41,7 @@ public class Goblin_move : MonoBehaviour
         attack_range = 2F;
         change_status(Enemy_state.IDLE);
         attack_cool_down = 2;
-        Detect_range = 5F;
+        Detect_range = 6F;
         is_knocked = false;
 
     }

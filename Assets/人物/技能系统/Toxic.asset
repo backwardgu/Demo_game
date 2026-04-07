@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bcd2ed9436df543a9165e666382e36, type: 3}
   m_Name: Toxic
   m_EditorClassIdentifier: 
-  skillname: 
-  max_level: 0
-  skill_icon: {fileID: 0}
+  skillname: "\u6DEC\u6BD2"
+  max_level: 3
+  skill_icon: {fileID: 21300000, guid: e35a17914251ad24bbf9770a4c983c7f, type: 3}

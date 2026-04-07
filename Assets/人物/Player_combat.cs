@@ -75,8 +75,11 @@ public class Player_combat : MonoBehaviour
         if (hits.Length > 0)
         {
             Debug.Log("命中怪物！");
-            hits[0].GetComponent<Enemy_health>().Change_health(-StatusManager.Instance.damage);
-            hits[0].GetComponent<Goblin_move>().knock_back(attack_point, StatusManager.Instance.hitback, 0.25F);
+            foreach (Collider2D enemy in hits) 
+            { 
+            enemy.GetComponent<Enemy_health>().Change_health(-StatusManager.Instance.damage);
+            enemy.GetComponent<Goblin_move>().knock_back(attack_point, StatusManager.Instance.hitback, 0.25F);
+            }
         }
     }
     void OnDrawGizmosSelected()

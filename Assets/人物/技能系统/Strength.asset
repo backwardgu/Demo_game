@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bcd2ed9436df543a9165e666382e36, type: 3}
   m_Name: Strength
   m_EditorClassIdentifier: 
-  skillname: 
-  max_level: 0
-  skill_icon: {fileID: 0}
+  skillname: "\u653B\u51FB\u529B\u63D0\u5347"
+  max_level: 5
+  skill_icon: {fileID: 21300000, guid: 9158a814b21610e4794955d26d62a5bd, type: 3}

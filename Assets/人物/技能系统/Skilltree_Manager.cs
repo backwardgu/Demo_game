@@ -18,7 +18,7 @@ public class Skilltree_Manager : MonoBehaviour
         {
             slot.skill_button.onClick.AddListener(()=>CheckAvailablePoints(slot));
         }
-        max_points = 5;
+        max_points = 3;
         available_points = 3;
         Update_ability_points(0);
     }

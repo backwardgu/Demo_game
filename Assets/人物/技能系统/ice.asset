@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bcd2ed9436df543a9165e666382e36, type: 3}
   m_Name: ice
   m_EditorClassIdentifier: 
-  skillname: 
-  max_level: 0
-  skill_icon: {fileID: 0}
+  skillname: "\u51B0\u971C\u6218\u58EB"
+  max_level: 1
+  skill_icon: {fileID: 21300000, guid: 96bc27d8520433c46a0f6720af15456a, type: 3}

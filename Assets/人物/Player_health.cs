@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player_health : MonoBehaviour
 {
     public TMP_Text health_text;
-    public Animator animator;
+    public Animator animator_UI,animator_player;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,14 +26,14 @@ public class Player_health : MonoBehaviour
             StatusManager.Instance.currentHealth = StatusManager.Instance.maxHealth;
         }
 
-        animator.Play("HP_UI");
+        animator_UI.Play("HP_UI");
         health_text.text = "HP:" + StatusManager.Instance.currentHealth + "/" + StatusManager.Instance.maxHealth;
 
     }
     public void Change_Max_Health(int amount)
     {
         StatusManager.Instance.maxHealth += amount;
-        animator.Play("HP_UI");
+        animator_UI.Play("HP_UI");
         health_text.text = "HP:" + StatusManager.Instance.currentHealth + "/" + StatusManager.Instance.maxHealth;
         Change_health(amount);
     }
@@ -41,6 +41,10 @@ public class Player_health : MonoBehaviour
     public void die(string name,object value)
     {
         if (name != "cur_health") return;
-        if((int)value <=0) gameObject.SetActive(false);
+        if((int)value <=0)animator_player.SetBool("is_alive",false);
+    }
+    public void remove()
+    {
+        Destroy(gameObject);
     }
 }
