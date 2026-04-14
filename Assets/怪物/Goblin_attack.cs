@@ -42,7 +42,14 @@ public class Goblin_attack : MonoBehaviour
         {
             Debug.Log("命中玩家！");
             hits[0].GetComponent<Player_health>().Change_health(-damage);
-            hits[0].GetComponent<player_move>().knock_back(attack_point,hit_back,0.25F);
+            if (hits[0].GetComponent<player_move>())
+            {
+                hits[0].GetComponent<player_move>().knock_back(attack_point, hit_back, 0.25F);
+            }
+            else
+            {
+                hits[0].GetComponent<Archer_move>().knock_back(attack_point, hit_back, 0.25F);
+            }
         }
     }
 }

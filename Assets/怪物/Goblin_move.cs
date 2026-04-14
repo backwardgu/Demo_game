@@ -41,9 +41,8 @@ public class Goblin_move : MonoBehaviour
         attack_range = 2F;
         change_status(Enemy_state.IDLE);
         attack_cool_down = 2;
-        Detect_range = 6F;
+        Detect_range = 8F;
         is_knocked = false;
-
     }
 
     // Update is called once per frame
@@ -156,11 +155,13 @@ public class Goblin_move : MonoBehaviour
                 speed = 0;
                 rb.velocity = Vector2.zero;
                 break;
+
             case Enemy_state.Chasing:
                 animator.SetBool("is_idle", false);
                 animator.SetBool("is_chasing", true);
                 speed = 3;
                 break;
+
             case Enemy_state.Attacking:
                 animator.SetBool("is_idle", false);
                 animator.SetBool("is_chasing", false);
