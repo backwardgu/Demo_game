@@ -10,7 +10,7 @@ public class Arrow : MonoBehaviour
     
     public float living_time;
     public float speed;
-    public int damage;
+
     public float hit_back_strength;
     public float knock_back_time;
 
@@ -23,7 +23,7 @@ public class Arrow : MonoBehaviour
         hit_back_strength = 30f;
         knock_back_time = 0.1f;
         living_time = 5;
-        damage = 1;
+
         speed = 20;
         RB.velocity = direction * speed;
         RotateArrow();
@@ -39,7 +39,7 @@ public class Arrow : MonoBehaviour
     {
         if((enemy_layer.value & (1 << collision.gameObject.layer)) >0)
         {
-            collision.gameObject.GetComponent<Enemy_health>().Change_health(-damage);
+            collision.gameObject.GetComponent<Enemy_health>().Change_health(-StatusManager.Instance.damage);
             collision.gameObject.GetComponent<Goblin_move>().knock_back(transform,hit_back_strength,knock_back_time);
             Attach(collision.gameObject.transform);
         }
@@ -55,7 +55,7 @@ public class Arrow : MonoBehaviour
         RB.velocity = Vector2.zero;
         speed = 0;
         RB.isKinematic = true;
-
+        RB.simulated = false;
         transform.SetParent(target);
     }
 }

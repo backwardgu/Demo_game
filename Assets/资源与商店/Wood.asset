@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3660680872ad97448c124caaae1879a, type: 3}
+  m_Name: Wood
+  m_EditorClassIdentifier: 
+  name: "\u6728\u5934"
+  description: "\u8981\u81F4\u5BCC\uFF0C\u5148\u64B8\u6811\u2026\u2026"
+  sprite: {fileID: -1227184944, guid: f1a5d8cc6f42e30499481e76501a15dc, type: 3}
+  is_gold: 0
+  current_health: 0
+  max_health: 0
+  value: 0

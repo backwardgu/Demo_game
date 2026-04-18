@@ -51,7 +51,6 @@ public class Archer_move : MonoBehaviour
     }
     public void fliping()
     {
-        Debug.Log("尝试转向");
         if (!bow.can_change()) return;
         faceing *= -1;
         bow.facing_direction *= -1;
