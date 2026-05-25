@@ -25,6 +25,7 @@ public class Status_UI : MonoBehaviour
             {
                 Time.timeScale = 1;
                 canvas.alpha = 0;
+                canvas.blocksRaycasts = false;
                 is_canva_open = false;
             }
 
@@ -32,6 +33,7 @@ public class Status_UI : MonoBehaviour
             {
                 Time.timeScale = 0;
                 canvas.alpha = 1;
+                canvas.blocksRaycasts = true;
                 is_canva_open = true;
             }
         } 

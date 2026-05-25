@@ -58,13 +58,13 @@ public class Archer_move : MonoBehaviour
     }
     public void knock_back(Transform enemy, float hit_back, float hit_time)
     {
-        is_knocked = true;
         Vector2 direction = (physics.transform.position - enemy.position).normalized;
         physics.velocity = direction * hit_back;
         StartCoroutine(KnockbackCounter(hit_time));
     }
     IEnumerator KnockbackCounter(float time)
     {
+        is_knocked = true;
         yield return new WaitForSeconds(time);
         physics.velocity = Vector2.zero;
         is_knocked = false;

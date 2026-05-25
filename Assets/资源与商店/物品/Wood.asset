@@ -10,12 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3660680872ad97448c124caaae1879a, type: 3}
-  m_Name: Pumpkin
+  m_Name: Wood
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  sprite: {fileID: 0}
+  name: "\u6728\u5934"
+  description: "\u8981\u81F4\u5BCC\uFF0C\u5148\u64B8\u6811\u2026\u2026"
+  sprite: {fileID: -1227184944, guid: f1a5d8cc6f42e30499481e76501a15dc, type: 3}
   is_gold: 0
+  stack_size: 10
+  price: 2
   current_health: 0
   max_health: 0
   value: 0
+  speed: 0
+  damage: 0
+  effect: "\u6CA1\u4EC0\u4E48\u7528\uFF0C\u8FD9\u4E2A\u53EA\u662F\u5360\u4F4D\u7684"
+  existing_time: 0

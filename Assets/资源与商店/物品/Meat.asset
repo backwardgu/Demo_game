@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3660680872ad97448c124caaae1879a, type: 3}
   m_Name: Meat
   m_EditorClassIdentifier: 
-  name: "\u795E\u79D8\u751F\u7269\u7684\u8089"
+  name: "\u8089"
   description: "\u5947\u602A\u7684\u8089\uFF0C\u53CD\u6B63\u5403\u4E86\u53EF\u4EE5\u56DE\u8840\uFF0C\u5C31\u4E0D\u8981\u6DF1\u7A76\u4E86"
   sprite: {fileID: 859651725, guid: 66f3bb0940145de48a6a3cc98c4452f3, type: 3}
-  current_health: 0
+  is_gold: 0
+  stack_size: 3
+  price: 5
+  current_health: 5
   max_health: 0
   value: 0
+  speed: 5
+  damage: 0
+  effect: "\u56DE\u590D\u4E94\u70B9\u751F\u547D\uFF0C\u901F\u5EA6+5\uFF0C\u6301\u7EED10\u79D2"
+  existing_time: 10

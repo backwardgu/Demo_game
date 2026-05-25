@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 3371695227968608215}
   - component: {fileID: 3832834037614438628}
   - component: {fileID: 355310262864405480}
+  - component: {fileID: 1915391214657417123}
   m_Layer: 5
   m_Name: "\u7269\u54C1\u69FD"
   m_TagString: Untagged
@@ -240,8 +241,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5714833165694868062}
   - {fileID: 1842735311460590717}
+  - {fileID: 5714833165694868062}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -303,3 +304,18 @@ MonoBehaviour:
   item_icon: {fileID: 6202978364196028358}
   quantity_text: {fileID: 7294785337099596174}
   quantity: 0
+  Player: {fileID: 0}
+  Loot_Prefab: {fileID: 3312639235029114373, guid: e1f78ebb0b37b914f926637f17843011, type: 3}
+  using_item: {fileID: 1915391214657417123}
+--- !u!114 &1915391214657417123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193322334030321587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1c8f4c051c39e4ca87cf4d148a0090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

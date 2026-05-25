@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.VirtualTexturing;
 
 public class Player_bow : MonoBehaviour
 {
@@ -65,6 +64,7 @@ public class Player_bow : MonoBehaviour
             is_aiming = false;
             currentTarget = null;
             transform.localRotation = Quaternion.Euler(0, 0, 0);
+            aimDirection = Vector2.right;
             return;
         }
 

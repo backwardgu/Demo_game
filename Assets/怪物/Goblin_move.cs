@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore;
-using UnityEngine.Windows.Speech;
 public enum Enemy_state
 {
     IDLE,
@@ -131,10 +130,9 @@ public class Goblin_move : MonoBehaviour
         change_status(Enemy_state.IDLE);
         animator.SetInteger("Attacking_mode", 0);
     }
-    public void knock_back(Transform enemy, float hit_back, float hit_time)
+    public void knock_back(Vector2 direction, float hit_back, float hit_time)
     {
         is_knocked = true;
-        Vector2 direction = (rb.transform.position - enemy.position).normalized;
         rb.velocity = direction * hit_back;
         StartCoroutine(KnockbackCounter(hit_time));
     }

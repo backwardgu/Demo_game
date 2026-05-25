@@ -78,7 +78,8 @@ public class Player_combat : MonoBehaviour
             foreach (Collider2D enemy in hits) 
             { 
             enemy.GetComponent<Enemy_health>().Change_health(-StatusManager.Instance.damage);
-            enemy.GetComponent<Goblin_move>().knock_back(attack_point, StatusManager.Instance.hitback, 0.25F);
+            Vector2 hit_direction = new Vector2(attack_point.position.x -enemy.transform.position.x, attack_point.position.y-enemy.transform.position.y);
+            enemy.GetComponent<Goblin_move>().knock_back(hit_direction, StatusManager.Instance.hitback, 0.25F);
             }
         }
     }

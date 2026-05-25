@@ -8,6 +8,7 @@ public class Enemy_health : MonoBehaviour
     public int cur_health;
     public int max_health;
     public int exp_award;
+    public Drop_Table drop_Table;
     public delegate void Monster_defeat(int exp);
     public static event Monster_defeat On_Monster_deteated;
 
@@ -30,6 +31,7 @@ public class Enemy_health : MonoBehaviour
         if (cur_health <= 0)
         {
             On_Monster_deteated(exp_award);
+            drop_Table.Drop_Loot(transform);
             Destroy(gameObject);
 
         }

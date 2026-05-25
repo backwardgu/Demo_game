@@ -1,6 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//为后续优化准备
+enum status_type
+{
+    damage,
+    weapon_range,
+    hit_back,
+    hit_back_time,
+    attack_cool,
+    speed,
+    max_health,
+    cur_health
+}
 public class StatusManager : MonoBehaviour
 {
     public static StatusManager Instance;

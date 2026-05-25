@@ -8,7 +8,6 @@ public class EXPManager : MonoBehaviour
     public int level;
     public int cur_exp;
     public int next_level_exp;
-    public Player_health health;
     public Slider expSlider;
     public TMP_Text cur_text;
     public static event System.Action<int> OnUpgrade;
@@ -40,7 +39,7 @@ public class EXPManager : MonoBehaviour
         level++;
         cur_exp -= next_level_exp;
         next_level_exp += 10;
-        health.Change_health(StatusManager.Instance.maxHealth);
+        StatusManager.Instance.currentHealth = StatusManager.Instance.maxHealth;
         OnUpgrade?.Invoke(1);
     }
     public void update_UI()

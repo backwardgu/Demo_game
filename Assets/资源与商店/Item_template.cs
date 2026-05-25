@@ -11,6 +11,8 @@ public class Item_template : ScriptableObject
     public string description;
     public Sprite sprite;
     public bool is_gold;
+    public int stack_size;
+    public int price;
 
     [Header("效果")]
     public int current_health;
@@ -18,6 +20,7 @@ public class Item_template : ScriptableObject
     public int value;
     public int speed;
     public int damage;
+    public string effect;
 
     [Header("持续时间")]
     public float existing_time;

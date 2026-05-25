@@ -41,7 +41,7 @@ public class Goblin_attack : MonoBehaviour
         if (hits.Length > 0)
         {
             Debug.Log("命中玩家！");
-            hits[0].GetComponent<Player_health>().Change_health(-damage);
+            StatusManager.Instance.currentHealth -= damage;
             if (hits[0].GetComponent<player_move>())
             {
                 hits[0].GetComponent<player_move>().knock_back(attack_point, hit_back, 0.25F);

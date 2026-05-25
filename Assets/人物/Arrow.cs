@@ -40,13 +40,15 @@ public class Arrow : MonoBehaviour
         if((enemy_layer.value & (1 << collision.gameObject.layer)) >0)
         {
             collision.gameObject.GetComponent<Enemy_health>().Change_health(-StatusManager.Instance.damage);
-            collision.gameObject.GetComponent<Goblin_move>().knock_back(transform,hit_back_strength,knock_back_time);
+            collision.gameObject.GetComponent<Goblin_move>().knock_back(direction.normalized,hit_back_strength,knock_back_time);
             Attach(collision.gameObject.transform);
         }
+
         else if((obstacle_layer.value& (1 << collision.gameObject.layer))>0)
         {
             Attach(collision.gameObject.transform);
         }
+
     }
     private void Attach(Transform target)
     {

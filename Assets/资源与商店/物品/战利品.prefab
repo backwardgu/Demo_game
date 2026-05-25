@@ -191,3 +191,4 @@ MonoBehaviour:
   sr: {fileID: 764270373606713308}
   animator: {fileID: 6539002625217904021}
   number: 0
+  can_be_picked: 1

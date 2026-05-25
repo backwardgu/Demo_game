@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Skills : MonoBehaviour
 {
-    public Player_health health;
     private void OnEnable()
     {
         SkillSlot.Skill_points_changed += upgrade_skill;
@@ -19,7 +18,7 @@ public class Skills : MonoBehaviour
         switch(skillName)
         {
             case "最大生命值提升":
-                health.Change_Max_Health(2);
+                StatusManager.Instance.maxHealth += 2;
                 break;
             case "攻击力提升":
                 StatusManager.Instance.damage += 1;

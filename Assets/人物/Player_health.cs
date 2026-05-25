@@ -10,32 +10,24 @@ public class Player_health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StatusManager.Instance.currentHealth = StatusManager.Instance.currentHealth;
+        StatusManager.Instance.currentHealth = StatusManager.Instance.maxHealth;
         health_text.text = "HP:" + StatusManager.Instance.currentHealth + "/" + StatusManager.Instance.maxHealth;
+    }
+
+    private void OnEnable()
+    {
+        StatusManager.Instance.OnStatChanged += health_change;
         StatusManager.Instance.OnStatChanged += die;
     }
-
-    public void Change_health(int amount)
+    private void OnDisable()
     {
-        Debug.Log($"生命值变动，变动为{amount}");
-
-        StatusManager.Instance.currentHealth += amount;
-
-        if (StatusManager.Instance.currentHealth > StatusManager.Instance.maxHealth)
-        {
-            StatusManager.Instance.currentHealth = StatusManager.Instance.maxHealth;
-        }
-
-        animator_UI.Play("HP_UI");
-        health_text.text = "HP:" + StatusManager.Instance.currentHealth + "/" + StatusManager.Instance.maxHealth;
-
+        StatusManager.Instance.OnStatChanged -= health_change;
+        StatusManager.Instance.OnStatChanged -= die;
     }
-    public void Change_Max_Health(int amount)
+    public void health_change(string status,object amount)
     {
-        StatusManager.Instance.maxHealth += amount;
         animator_UI.Play("HP_UI");
         health_text.text = "HP:" + StatusManager.Instance.currentHealth + "/" + StatusManager.Instance.maxHealth;
-        Change_health(amount);
     }
 
     //虽然没有必要，但是我想测试一下事件系统
